@@ -1,0 +1,34 @@
+@(message: String)
+@main("Upload 2.0") {
+<header class="well">
+  <div class="container">
+    <h1>@message</h1>
+  </div>
+</header>
+<div class="container" style="width: 562px;margin-top: 50px;">
+  <form class="form-horizontal well" >
+    <div class="control-group">
+      <label class="control-label lead">File selection:</label>
+      <div class="controls">
+		<input type="file" id="files" name="files[]" multiple class="btn" />
+	  </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label lead">Progress:</label>
+      <div class="controls">
+		
+	
+	    <div id="progress_bar" style="width: 300px;margin-top: 11px;">
+ 		<div class="bar percent ">0%</div>
+		</div>
+	</div>
+	</div>
+   <div class="control-group">
+      <label class="control-label lead">Status:</label>
+      <div class="controls"><p id="status" class="muted" style="margin-top: 11px;"></p> 
+	  </div>
+    </div>
+  </form>
+ 
+  </div>
+  }
