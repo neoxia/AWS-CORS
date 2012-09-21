@@ -1,19 +1,12 @@
 package controllers;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Formatter;
-
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
-import org.joda.time.DateTime;
-
-import play.*;
 import play.mvc.*;
 
 import views.html.*;
@@ -45,10 +38,22 @@ public class Application extends Controller {
 		    byte[] digest = mac.doFinal(stringToSign.getBytes());
 		    digest= Base64.encodeBase64(digest);  
 		  
-		    String sig= URLEncoder.encode(new String(digest));  
+		    String sig = null;
+			try {
+				sig = URLEncoder.encode(new String(digest),"UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}  
 		  
 		    
-		String url = URLEncoder.encode(S3_URL+S3_BUCKET+objectName+"?AWSAccessKeyId="+S3_KEY+"&Expires="+expires+"&Signature="+sig);
+		String url = null;
+		try {
+			url = URLEncoder.encode(S3_URL+S3_BUCKET+objectName+"?AWSAccessKeyId="+S3_KEY+"&Expires="+expires+"&Signature="+sig,"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	 
 
 		
