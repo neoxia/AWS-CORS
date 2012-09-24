@@ -1,6 +1,30 @@
-This was made with the new Play 2.0 Framework
+This test was made with the new Play 2.0 Framework
 =====================================
 
 This is a test that Upload files into your S3 bucket using PUT and CORS For an Upload directly from the browser to your bucket.
 
 IMPORTANT: Add your credentials, key and bucket name must be specified into the conf/AWS.properties.
+IMPORTANT: Add the following CORS Configuration to your AWS S3 Bucket (go the AWS console >> Right click on the bucket >> Properties >> Edit CORS Configuration)
+IMPORTANT: Change the AllowedOrigin tag content with your domain or a * (asterisk) to make the upload possible from all the domains.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <CORSRule>
+        <AllowedOrigin>
+            http://YourDomain.com
+        </AllowedOrigin>
+        <AllowedMethod>PUT</AllowedMethod>
+        <MaxAgeSeconds>3000</MaxAgeSeconds>
+        <AllowedHeader>Content-Type</AllowedHeader>
+        <AllowedHeader>x-amz-acl</AllowedHeader>
+        <AllowedHeader>origin</AllowedHeader>
+    </CORSRule>
+</CORSConfiguration>
+
+
+to run a play application:
+- download play framework 2.0 from http://download.playframework.org/releases/play-2.0.3.zip
+- unZip and add the play folder to your path
+- go to your application root
+- type "play run"
+- go to localhost:9000
