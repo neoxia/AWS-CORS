@@ -7,6 +7,9 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
+
+import com.typesafe.config.ConfigFactory;
+
 import play.mvc.*;
 
 import views.html.*;
@@ -18,9 +21,9 @@ public class Application extends Controller {
   }
   
   public static Result Upload() throws GeneralSecurityException{
-		String S3_KEY="AKIAIZCD5WN2JEXDHALQ";
-		String S3_SECRET="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";
-		String S3_BUCKET="/test_CORS_souhail";
+	  String S3_KEY=ConfigFactory.load("AWS.properties").getString("S3_KEY");
+		String S3_SECRET=ConfigFactory.load("AWS.properties").getString("S3_SECRET");
+		String S3_BUCKET=ConfigFactory.load("AWS.properties").getString("S3_BUCKET");
 		 
 		long EXPIRE_TIME=(60 * 5); // 5 minutes
 		String S3_URL="http://s3.amazonaws.com";

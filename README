@@ -1,4 +1,5 @@
-This is your new Play 2.0 application
+This is made with the new Play 2.0 Framework
 =====================================
 
-This file will be packaged with your application, when using `play dist`.
+this is a test Upload using S3 with CORS For an Upload directly from the browser to your bucket.
+
