@@ -1,5 +1,6 @@
-This is was made with the new Play 2.0 Framework
+This was made with the new Play 2.0 Framework
 =====================================
 
-This is a test Upload using S3 with CORS For an Upload directly from the browser to your bucket.
-Add your credentials, key and bucket name must be specified into the conf/AWS.properties.
+This is a test that Upload files into your S3 bucket using PUT and CORS For an Upload directly from the browser to your bucket.
+
+IMPORTANT: Add your credentials, key and bucket name must be specified into the conf/AWS.properties.
