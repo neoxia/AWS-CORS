@@ -23,7 +23,7 @@ public class Application extends Controller {
   public static Result Upload() throws GeneralSecurityException{
 	  String S3_KEY=ConfigFactory.load("AWS.properties").getString("S3_KEY");
 		String S3_SECRET=ConfigFactory.load("AWS.properties").getString("S3_SECRET");
-		String S3_BUCKET=ConfigFactory.load("AWS.properties").getString("S3_BUCKET");
+		String S3_BUCKET="/"+ConfigFactory.load("AWS.properties").getString("S3_BUCKET");
 		 
 		long EXPIRE_TIME=(60 * 5); // 5 minutes
 		String S3_URL="http://s3.amazonaws.com";
