@@ -25,6 +25,8 @@ function handleFileSelect(evt)
  
   var files = evt.target.files; 
   fileTotal=0;
+  alert files[1];
+  
 
   for (var i = 0, f; f = files[i]; i++) 
   {
